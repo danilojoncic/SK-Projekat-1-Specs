@@ -1,6 +1,9 @@
 package model.builderPattern;
 
-import model.*;
+import model.raspored.Predmet;
+import model.raspored.Prostorija;
+import model.raspored.Termin;
+import model.raspored.VremeVazenja;
 
 import java.util.HashMap;
 import java.util.HashSet;

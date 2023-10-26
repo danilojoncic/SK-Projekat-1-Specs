@@ -1,4 +1,4 @@
-package model;
+package model.raspored;
 
 public class Prostorija {
     private int sprat;

@@ -1,6 +1,6 @@
 package model.builderPattern;
 
-import model.Raspored;
+import model.raspored.Raspored;
 
 public class ConcreteBuilder extends Builder{
     Raspored raspored;

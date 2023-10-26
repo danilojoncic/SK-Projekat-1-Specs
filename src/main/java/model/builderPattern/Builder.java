@@ -1,6 +1,6 @@
 package model.builderPattern;
 
-import model.*;
+import model.raspored.*;
 
 import java.util.HashMap;
 import java.util.HashSet;

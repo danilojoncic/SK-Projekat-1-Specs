@@ -1,4 +1,4 @@
-package model;
+package model.raspored;
 
 import java.util.Date;
 
