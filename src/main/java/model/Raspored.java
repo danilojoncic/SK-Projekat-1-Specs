@@ -25,6 +25,9 @@ public class Raspored {
         this.predmeti = predmeti;
     }
 
+    public Raspored() {
+    }
+
     public List<String> getTimeline() {
         return timeline;
     }
@@ -77,5 +80,13 @@ public class Raspored {
         }
 
         return vremena;
+    }
+
+    public HashMap<Termin, Predmet> getKolekcijaParova() {
+        return kolekcijaParova;
+    }
+
+    public void setKolekcijaParova(HashMap<Termin, Predmet> kolekcijaParova) {
+        this.kolekcijaParova = kolekcijaParova;
     }
 }
