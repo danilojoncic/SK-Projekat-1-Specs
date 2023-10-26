@@ -10,7 +10,8 @@ public abstract class Builder {
     Raspored raspored;
 
     public Raspored reset(){
-        return new Raspored();
+        raspored = new Raspored();
+        return raspored;
     }
     public void postaviVremeVazenje(VremeVazenja vremeVazenja){
         raspored.setVremeVazenja(vremeVazenja);

@@ -1,9 +1,6 @@
 package model.builderPattern;
 
-import model.raspored.Predmet;
-import model.raspored.Prostorija;
-import model.raspored.Termin;
-import model.raspored.VremeVazenja;
+import model.raspored.*;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -16,7 +13,7 @@ public class Director {
     HashSet<Prostorija> prostorije;
     List<Termin> termini;
     HashSet<Predmet> predmeti;
-
+    Raspored raspored;
     HashMap<Termin,Predmet> kolekcijaParova;
     ConcreteBuilder concreteBuilder;
 
@@ -29,15 +26,16 @@ public class Director {
         }
     }
 
-    public void napraviListuRaspored(ConcreteBuilder concreteBuilder){
+    public Raspored napraviListuRaspored(ConcreteBuilder concreteBuilder){
         concreteBuilder.reset();
         concreteBuilder.postaviProstorije(prostorije);
         concreteBuilder.postaviTermine(termini);
         concreteBuilder.postaviKolekcijeParova(kolekcijaParova);
-
+        raspored = concreteBuilder.getRaspored();
+        return raspored;
     }
 
-    public void napraviNedeljniRaspored(ConcreteBuilder concreteBuilder){
+    public Raspored napraviNedeljniRaspored(ConcreteBuilder concreteBuilder){
         concreteBuilder.reset();
         concreteBuilder.postaviTimeline();
         concreteBuilder.postaviVremeVazenje(vremeVazenja);
@@ -45,6 +43,8 @@ public class Director {
         concreteBuilder.postaviKolekcijeParova(kolekcijaParova);
         concreteBuilder.postaviProstorije(prostorije);
         concreteBuilder.postaviPredmete(predmeti);
+        raspored = concreteBuilder.getRaspored();
+        return raspored;
     }
 
 
@@ -73,5 +73,29 @@ public class Director {
 
     public void setKolekcijaParova(HashMap<Termin, Predmet> kolekcijaParova) {
         this.kolekcijaParova = kolekcijaParova;
+    }
+
+    public List<String> getTimeline() {
+        return timeline;
+    }
+
+    public VremeVazenja getVremeVazenja() {
+        return vremeVazenja;
+    }
+
+    public HashSet<Prostorija> getProstorije() {
+        return prostorije;
+    }
+
+    public List<Termin> getTermini() {
+        return termini;
+    }
+
+    public HashSet<Predmet> getPredmeti() {
+        return predmeti;
+    }
+
+    public HashMap<Termin, Predmet> getKolekcijaParova() {
+        return kolekcijaParova;
     }
 }
