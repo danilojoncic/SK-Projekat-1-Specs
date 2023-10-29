@@ -1,5 +1,7 @@
 package model.raspored;
 
+import model.Dogadjaj;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -7,86 +9,66 @@ import java.util.List;
 
 public class Raspored {
 
-    List<String> timeline;
-    VremeVazenja vremeVazenja;
-    HashSet<Prostorija> prostorije;
-    List<Termin> termini;
-    HashSet<Predmet> predmeti;
+    List<Dogadjaj> dogadjaji = new ArrayList<>();
+    HashSet<String> profesori = new HashSet<>();
+    HashSet<String> grupe = new HashSet<>();
+    HashSet<String> ucionice = new HashSet<>();
+    HashSet<String> vreme = new HashSet<>();
 
-    HashMap<Termin,Predmet> kolekcijaParova;
+    HashSet<String> predmeti = new HashSet<>();
 
-
-
-    public Raspored(VremeVazenja vremeVazenja, HashSet<Prostorija> prostorije, List<Termin> termini, HashSet<Predmet> predmeti) {
-        this.timeline = generisiVremena();
-        this.vremeVazenja = vremeVazenja;
-        this.prostorije = prostorije;
-        this.termini = termini;
-        this.predmeti = predmeti;
-    }
-
-    public Raspored() {
-    }
-
-    public List<String> getTimeline() {
-        return timeline;
-    }
-
-    public void setTimeline(List<String> timeline) {
-        this.timeline = timeline;
-    }
-
-    public VremeVazenja getVremeVazenja() {
-        return vremeVazenja;
-    }
-
-    public void setVremeVazenja(VremeVazenja vremeVazenja) {
-        this.vremeVazenja = vremeVazenja;
-    }
-
-    public HashSet<Prostorija> getProstorije() {
-        return prostorije;
-    }
-
-    public void setProstorije(HashSet<Prostorija> prostorije) {
-        this.prostorije = prostorije;
-    }
-
-    public List<Termin> getTermini() {
-        return termini;
-    }
-
-    public void setTermini(List<Termin> termini) {
-        this.termini = termini;
-    }
-
-    public HashSet<Predmet> getPredmeti() {
+    public HashSet<String> getPredmeti() {
         return predmeti;
     }
 
-    public void setPredmeti(HashSet<Predmet> predmeti) {
-        this.predmeti = predmeti;
+    public List<Dogadjaj> getDogadjaji() {
+        return dogadjaji;
     }
 
-    public List<String> generisiVremena() {
-        List<String> vremena = new ArrayList<>();
-        String s;
-        for (int i = 9; i <= 21; i++) {
-            if (i < 10)
-                s = "0"+i+":00h";
-             else
-                s = i + ":00h";
-            vremena.add(s);
+    public void setDogadjaji(List<Dogadjaj> dogadjaji) {
+        this.dogadjaji = dogadjaji;
+    }
+
+    public HashSet<String> getProfesori() {
+        return profesori;
+    }
+
+    public void setProfesori(HashSet<String> profesori) {
+        this.profesori = profesori;
+    }
+
+    public HashSet<String> getGrupe() {
+        return grupe;
+    }
+
+    public void setGrupe(HashSet<String> grupe) {
+        this.grupe = grupe;
+    }
+
+    public HashSet<String> getUcionice() {
+        return ucionice;
+    }
+
+    public void setUcionice(HashSet<String> ucionice) {
+        this.ucionice = ucionice;
+    }
+
+    public HashSet<String> getVreme() {
+        return vreme;
+    }
+
+    public void setVreme(HashSet<String> vreme) {
+        this.vreme = vreme;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Dogadjaj dogadjaj : dogadjaji) {
+            sb.append(dogadjaj);
+            sb.append("\n");
+
         }
-
-        return vremena;
-    }
-
-    public HashMap<Termin, Predmet> getKolekcijaParova() {
-        return kolekcijaParova;
-    }
-
-    public void setKolekcijaParova(HashMap<Termin, Predmet> kolekcijaParova) {
-        this.kolekcijaParova = kolekcijaParova;
+        return sb.toString();
     }
 }
