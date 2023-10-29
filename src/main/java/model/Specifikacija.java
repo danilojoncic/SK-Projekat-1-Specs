@@ -6,5 +6,5 @@ public interface Specifikacija {
     void kreirajRaspored();
     void pretraziRaspred();
     void sacuvajRaspored();
-    void ucirajRaspored();
+    void ucitajRaspored(String filename);
 }

@@ -10,9 +10,9 @@ public class Raspored {
 
     private Date datumDoKadaVazi;
 
-    private List<HashMap<String,List<Dogadjaj>>> bozePomozi;
-    private List<Dogadjaj> dogadjaji;
-    private Dogadjaj header;
+    private List<HashMap<String,List<Dogadjaj>>> bozePomozi; // svaka kolona jedog reda ce u jednom trenutku biti kljuc a za vrednost kljuca ce biti lista ostalih kolona u redu
+    private List<Dogadjaj> dogadjaji; // lista svih dogadjaja
+    private Dogadjaj header; // header je imena kolona za gui
 
 
     public Raspored(Date date) {

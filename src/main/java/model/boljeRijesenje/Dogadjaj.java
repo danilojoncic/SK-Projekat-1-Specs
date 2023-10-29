@@ -3,7 +3,7 @@ package model.boljeRijesenje;
 import java.util.List;
 
 public class Dogadjaj {
-    List<String> stavkeDogadjaja;
+    List<String> stavkeDogadjaja; // kolone jednog reda
 
     public Dogadjaj(List<String> stavkeDogadjaja) {
         this.stavkeDogadjaja = stavkeDogadjaja;
