@@ -53,4 +53,18 @@ public class Raspored {
     public void setDogadjaji(List<Dogadjaj> dogadjaji) {
         this.dogadjaji = dogadjaji;
     }
+
+    public List<Dogadjaj> vratiFiltrirano(String filter){
+        for (HashMap<String, List<Dogadjaj>> stringListHashMap : bozePomozi) {
+            if (stringListHashMap.get(filter) != null){
+                System.out.println("Pronasao");
+                return stringListHashMap.get(filter);
+            }
+        }
+        System.out.println("Nije pronasao");
+        return null;
+    }
+
+
 }
+

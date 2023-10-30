@@ -20,9 +20,8 @@ public class Dogadjaj {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("Dogadjaj -> ");
         for (String s : stavkeDogadjaja) {
-            stringBuilder.append("["+s+"] ");
+            stringBuilder.append("\""+ s +"\"");
         }
         return stringBuilder.toString();
     }
