@@ -1,5 +1,6 @@
 package model.boljeRijesenje;
 
+import java.awt.dnd.DragSource;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -55,6 +56,7 @@ public class Raspored {
     }
 
     public List<Dogadjaj> vratiFiltrirano(String filter){
+        //to do za sve cak i krajeve rijeci
         for (HashMap<String, List<Dogadjaj>> stringListHashMap : bozePomozi) {
             if (stringListHashMap.get(filter) != null){
                 System.out.println("Pronasao");
@@ -64,6 +66,27 @@ public class Raspored {
         System.out.println("Nije pronasao");
         return null;
     }
+
+    public Raspored refresh(List<Dogadjaj> noviDogadjaji) {
+        this.setDogadjaji(noviDogadjaji);
+        List<HashMap<String, List<Dogadjaj>>> listaHmapi = new ArrayList<>();
+        for (int i = 0; i < noviDogadjaji.get(0).stavkeDogadjaja.size(); i++) {
+            listaHmapi.add(new HashMap<String, List<Dogadjaj>>());
+        }
+        for (Dogadjaj dogadjaj : this.dogadjaji) {
+            for (int i = 0; i < dogadjaj.stavkeDogadjaja.size(); i++) {
+                String currentString = dogadjaj.stavkeDogadjaja.get(i); // Get the string
+                HashMap<String, List<Dogadjaj>> hashMap = listaHmapi.get(i);
+                if (!hashMap.containsKey(currentString)) {
+                    hashMap.put(currentString, new ArrayList<>());
+                }
+                hashMap.get(currentString).add(dogadjaj);
+            }
+        }
+        this.setBozePomozi(listaHmapi);
+        return this;
+    }
+
 
 
 }
