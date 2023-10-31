@@ -57,14 +57,16 @@ public class Raspored {
 
     public List<Dogadjaj> vratiFiltrirano(String filter){
         //to do za sve cak i krajeve rijeci
+        List<Dogadjaj> uhvacniDogadjaji = new ArrayList<>();
         for (HashMap<String, List<Dogadjaj>> stringListHashMap : bozePomozi) {
-            if (stringListHashMap.get(filter) != null){
-                System.out.println("Pronasao");
-                return stringListHashMap.get(filter);
+            for(String key : stringListHashMap.keySet()){
+                if(key.contains(filter)){
+                    List<Dogadjaj> keyDogadjaji = stringListHashMap.get(key);
+                    uhvacniDogadjaji.addAll(keyDogadjaji);
+                }
             }
         }
-        System.out.println("Nije pronasao");
-        return null;
+        return uhvacniDogadjaji;
     }
 
     public Raspored refresh(List<Dogadjaj> noviDogadjaji) {
