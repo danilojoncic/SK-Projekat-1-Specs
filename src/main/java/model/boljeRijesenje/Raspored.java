@@ -90,6 +90,23 @@ public class Raspored {
     }
 
 
+    //kolona predstavlja hashMapu koju brisemo
+    public void obrisiKolonu(int index){
+        for(Dogadjaj dogadjaj : this.dogadjaji){
+            dogadjaj.stavkeDogadjaja.remove(index);
+        }
+        this.refresh(this.dogadjaji);
+    }
+
+    //brise dogadjaj iz ukupne liste dogadjaja
+    public void obrisiRed(int index){
+        this.dogadjaji.remove(index);
+        this.refresh(this.dogadjaji);
+    }
+
+
+
+
 
 }
 
