@@ -8,6 +8,7 @@ public class Raspored {
 
 
     private Date datumDoKadaVazi;
+    private Date datumOdKadaVazi;
 
     private List<HashMap<String,List<Dogadjaj>>> bozePomozi; // svaka kolona jedog reda ce u jednom trenutku biti kljuc a za vrednost kljuca ce biti lista ostalih kolona u redu
     private List<Dogadjaj> dogadjaji; // lista svih dogadjaja
@@ -27,6 +28,8 @@ public class Raspored {
     public Dogadjaj getHeader() {
         return header;
     }
+
+
 
     public void setHeader(Dogadjaj header) {
         this.header = header;
@@ -71,6 +74,14 @@ public class Raspored {
 
     public void setKrajnji(LocalDate krajnji) {
         this.krajnji = krajnji;
+    }
+
+    public Date getDatumOdKadaVazi() {
+        return datumOdKadaVazi;
+    }
+
+    public void setDatumOdKadaVazi(Date datumOdKadaVazi) {
+        this.datumOdKadaVazi = datumOdKadaVazi;
     }
 
     public List<Dogadjaj> vratiFiltrirano(String filter){
@@ -136,6 +147,7 @@ public class Raspored {
         this.dogadjaji.remove(index);
         this.refresh(this.dogadjaji);
     }
+
 
     public void dodajPoljeUDogadjaj(int index,String novoPolje){
         //dodamo polje za datum, na listi stringova jednog dogadjaja, zatim pozovemo refresh sto nam vrati hashMape ponovo
