@@ -137,6 +137,16 @@ public class Raspored {
         this.refresh(this.dogadjaji);
     }
 
+    public void dodajPoljeUDogadjaj(int index,String novoPolje){
+        //dodamo polje za datum, na listi stringova jednog dogadjaja, zatim pozovemo refresh sto nam vrati hashMape ponovo
+        //povezane
+        this.dogadjaji.get(index).stavkeDogadjaja.add(novoPolje);
+        //refresh ce korisnik sam da unese na sami kraj da se ne bi gubilo vrijeme
+    }
+
+
+
+
 
 
 
