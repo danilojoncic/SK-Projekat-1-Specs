@@ -1,6 +1,7 @@
 package model.boljeRijesenje;
 
 import java.awt.dnd.DragSource;
+import java.time.LocalDate;
 import java.util.*;
 
 public class Raspored {
@@ -11,6 +12,10 @@ public class Raspored {
     private List<HashMap<String,List<Dogadjaj>>> bozePomozi; // svaka kolona jedog reda ce u jednom trenutku biti kljuc a za vrednost kljuca ce biti lista ostalih kolona u redu
     private List<Dogadjaj> dogadjaji; // lista svih dogadjaja
     private Dogadjaj header; // header je imena kolona za gui
+
+    private LocalDate pocetni;
+
+    private LocalDate krajnji;
 
 
     public Raspored(Date date) {
@@ -50,6 +55,22 @@ public class Raspored {
 
     public void setDogadjaji(List<Dogadjaj> dogadjaji) {
         this.dogadjaji = dogadjaji;
+    }
+
+    public LocalDate getPocetni() {
+        return pocetni;
+    }
+
+    public void setPocetni(LocalDate pocetni) {
+        this.pocetni = pocetni;
+    }
+
+    public LocalDate getKrajnji() {
+        return krajnji;
+    }
+
+    public void setKrajnji(LocalDate krajnji) {
+        this.krajnji = krajnji;
     }
 
     public List<Dogadjaj> vratiFiltrirano(String filter){
