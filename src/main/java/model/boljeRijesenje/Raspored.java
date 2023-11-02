@@ -1,10 +1,7 @@
 package model.boljeRijesenje;
 
 import java.awt.dnd.DragSource;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class Raspored {
 
@@ -68,6 +65,21 @@ public class Raspored {
         }
         return uhvacniDogadjaji;
     }
+
+    public void dodajRedURaspored(Dogadjaj dogadjaj){
+        this.dogadjaji.add(dogadjaj);
+        this.refresh(this.dogadjaji);
+    }
+
+    public List<String> vratiListuOdgovarajuceMape(int index){
+        List<String> odgovarajuci = new ArrayList<>();
+        for(String s : this.bozePomozi.get(index).keySet()){
+            odgovarajuci.add(s);
+        }
+        return odgovarajuci;
+    }
+
+
 
     public Raspored refresh(List<Dogadjaj> noviDogadjaji) {
         this.setDogadjaji(noviDogadjaji);
