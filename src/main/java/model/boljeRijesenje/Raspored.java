@@ -14,10 +14,10 @@ public class Raspored {
     private List<Dogadjaj> dogadjaji; // lista svih dogadjaja
     private Dogadjaj header; // header je imena kolona za gui
 
-    private LocalDate pocetni;
 
-    private LocalDate krajnji;
+    public Raspored(){
 
+    }
 
     public Raspored(Date date) {
         this.datumDoKadaVazi = date;
@@ -60,21 +60,9 @@ public class Raspored {
         this.dogadjaji = dogadjaji;
     }
 
-    public LocalDate getPocetni() {
-        return pocetni;
-    }
 
-    public void setPocetni(LocalDate pocetni) {
-        this.pocetni = pocetni;
-    }
 
-    public LocalDate getKrajnji() {
-        return krajnji;
-    }
 
-    public void setKrajnji(LocalDate krajnji) {
-        this.krajnji = krajnji;
-    }
 
     public Date getDatumOdKadaVazi() {
         return datumOdKadaVazi;
