@@ -107,10 +107,12 @@ public class Raspored {
         for (int i = 0; i < noviDogadjaji.get(0).stavkeDogadjaja.size(); i++) {
             listaHmapi.add(new HashMap<String, List<Dogadjaj>>());
         }
+        String currentString;
+        HashMap<String, List<Dogadjaj>> hashMap;
         for (Dogadjaj dogadjaj : this.dogadjaji) {
             for (int i = 0; i < dogadjaj.stavkeDogadjaja.size(); i++) {
-                String currentString = dogadjaj.stavkeDogadjaja.get(i); // Get the string
-                HashMap<String, List<Dogadjaj>> hashMap = listaHmapi.get(i);
+                currentString = dogadjaj.stavkeDogadjaja.get(i); // Get the string
+                hashMap = listaHmapi.get(i);
                 if (!hashMap.containsKey(currentString)) {
                     hashMap.put(currentString, new ArrayList<>());
                 }
@@ -147,8 +149,9 @@ public class Raspored {
 
 
     public boolean idiNaUvidUPonedeljak(Dogadjaj dogadjaj,List<Integer> mojaListaIndeksa){
+        List<Dogadjaj> tempFilter;
         for(int i = 0; i < mojaListaIndeksa.size();i++){
-            List<Dogadjaj> tempFilter = vratiFiltrirano(dogadjaj.stavkeDogadjaja.get(i));
+            tempFilter = vratiFiltrirano(dogadjaj.stavkeDogadjaja.get(i));
             this.refresh(tempFilter);
         }
         if(this.dogadjaji.isEmpty()){
