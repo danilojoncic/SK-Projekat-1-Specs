@@ -146,6 +146,21 @@ public class Raspored {
 
 
 
+    public boolean idiNaUvidUPonedeljak(Dogadjaj dogadjaj,List<Integer> mojaListaIndeksa){
+        for(int i = 0; i < mojaListaIndeksa.size();i++){
+            List<Dogadjaj> tempFilter = vratiFiltrirano(dogadjaj.stavkeDogadjaja.get(i));
+            this.refresh(tempFilter);
+        }
+        if(this.dogadjaji.isEmpty()){
+            return true;
+        }else{
+            System.out.println("NE MOZE MICO!");
+            return false;
+        }
+    }
+
+
+
 
 
 
