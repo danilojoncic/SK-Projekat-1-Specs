@@ -151,16 +151,27 @@ public class Raspored {
     public boolean idiNaUvidUPonedeljak(Dogadjaj dogadjaj,List<Integer> mojaListaIndeksa){
         List<Dogadjaj> tempFilter;
         for(int i = 0; i < mojaListaIndeksa.size();i++){
-            tempFilter = vratiFiltrirano(dogadjaj.stavkeDogadjaja.get(i));
+            tempFilter = vratiFiltrirano(dogadjaj.stavkeDogadjaja.get(mojaListaIndeksa.get(i)));
             this.refresh(tempFilter);
+            //this.odstampajRaspored();
         }
-        if(this.dogadjaji.isEmpty()){
+        if(this.dogadjaji.size() == 0){
             return true;
         }else{
             System.out.println("NE MOZE MICO!");
             return false;
         }
     }
+
+
+    public void odstampajRaspored(){
+        System.out.println( "Linija " + this.dogadjaji.size());
+        for (Dogadjaj dogadjaj : this.dogadjaji) {
+            System.out.println( "Linija " + dogadjaj.toString());
+        }
+    }
+
+
 
 
 
