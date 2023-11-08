@@ -25,4 +25,21 @@ public class Dogadjaj {
         }
         return stringBuilder.toString();
     }
+
+    public boolean isClone(Dogadjaj clone){
+        for(int i = 0; i < this.getStavkeDogadjaja().size();i++){
+            if(!this.getStavkeDogadjaja().get(i).equals(clone.getStavkeDogadjaja().get(i))){
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+
+
+
+
+
+
 }
