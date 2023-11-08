@@ -102,6 +102,9 @@ public class Raspored {
 
 
     public Raspored refresh(List<Dogadjaj> noviDogadjaji) {
+//        if(noviDogadjaji.isEmpty()){
+//            return this;
+//        }
         this.setDogadjaji(noviDogadjaji);
         List<HashMap<String, List<Dogadjaj>>> listaHmapi = new ArrayList<>();
         for (int i = 0; i < noviDogadjaji.get(0).stavkeDogadjaja.size(); i++) {
@@ -150,12 +153,20 @@ public class Raspored {
 
     public boolean idiNaUvidUPonedeljak(Dogadjaj dogadjaj,List<Integer> mojaListaIndeksa){
         List<Dogadjaj> tempFilter;
+        Raspored joker = this;
         for(int i = 0; i < mojaListaIndeksa.size();i++){
+            System.out.println("Pre ovoga");
             tempFilter = vratiFiltrirano(dogadjaj.stavkeDogadjaja.get(mojaListaIndeksa.get(i)));
-            this.refresh(tempFilter);
+            System.out.println("Posle ovoga");
+            if(tempFilter.isEmpty())
+                return true;
+            joker.refresh(tempFilter);
+            System.out.println("Posle refresha " + i);
             //this.odstampajRaspored();
         }
-        if(this.dogadjaji.size() == 0){
+        System.out.println("Velicina dogadjaja: " + dogadjaji.size());
+        if(joker.dogadjaji.size() == 0){
+            System.out.println("u ifu");
             return true;
         }else{
             System.out.println("NE MOZE MICO!");
@@ -169,6 +180,15 @@ public class Raspored {
         for (Dogadjaj dogadjaj : this.dogadjaji) {
             System.out.println( "Linija " + dogadjaj.toString());
         }
+    }
+
+    public Raspored kloniraj(Raspored raspored){
+        Raspored raspored1 = new Raspored();
+        raspored1.setHeader(raspored.getHeader());
+        raspored1.setDogadjaji(raspored.getDogadjaji());
+        raspored1.setBozePomozi(raspored.getBozePomozi());
+        return raspored1;
+
     }
 
 
