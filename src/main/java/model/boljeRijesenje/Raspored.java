@@ -10,9 +10,20 @@ public class Raspored {
     private Date datumDoKadaVazi;
     private Date datumOdKadaVazi;
 
+    //inace ovo ce da povezuje ucionicu kao string sa objektom osobine koji povezujemo na njega
+    private HashMap<String,Osobine> tabLimundo;
+    //neko polje koje ima povezano sa sobom timeline sa nekim terminima
+    private HashMap<String,List<String>> slobodniTerminiZaGledanjeGospodaraPrstenovaBluRay;
+    //RAF5 -> 11:15-13:00
+    //900,915,100,1015;
+    //komponente 11:15-13:00
+
+
+
     private List<HashMap<String,List<Dogadjaj>>> bozePomozi; // svaka kolona jedog reda ce u jednom trenutku biti kljuc a za vrednost kljuca ce biti lista ostalih kolona u redu
     private List<Dogadjaj> dogadjaji; // lista svih dogadjaja
     private Dogadjaj header; // header je imena kolona za gui
+
 
 
     public Raspored(){
@@ -130,6 +141,7 @@ public class Raspored {
     //kolona predstavlja hashMapu koju brisemo
     public void obrisiKolonu(int index){
         for(Dogadjaj dogadjaj : this.dogadjaji){
+            System.out.println(dogadjaj.stavkeDogadjaja.size());
             dogadjaj.stavkeDogadjaja.remove(index);
         }
         this.refresh(this.dogadjaji);
@@ -192,13 +204,20 @@ public class Raspored {
     }
 
 
+    public HashMap<String, Osobine> getTabLimundo() {
+        return tabLimundo;
+    }
 
+    public void setTabLimundo(HashMap<String, Osobine> tabLimundo) {
+        this.tabLimundo = tabLimundo;
+    }
 
+    public HashMap<String, List<String>> getSlobodniTerminiZaGledanjeGospodaraPrstenovaBluRay() {
+        return slobodniTerminiZaGledanjeGospodaraPrstenovaBluRay;
+    }
 
-
-
-
-
-
+    public void setSlobodniTerminiZaGledanjeGospodaraPrstenovaBluRay(HashMap<String, List<String>> slobodniTerminiZaGledanjeGospodaraPrstenovaBluRay) {
+        this.slobodniTerminiZaGledanjeGospodaraPrstenovaBluRay = slobodniTerminiZaGledanjeGospodaraPrstenovaBluRay;
+    }
 }
 
