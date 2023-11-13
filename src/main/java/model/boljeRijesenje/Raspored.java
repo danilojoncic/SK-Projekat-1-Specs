@@ -1,6 +1,7 @@
 package model.boljeRijesenje;
 
 import java.awt.dnd.DragSource;
+import java.io.*;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -12,8 +13,9 @@ public class Raspored {
 
     //inace ovo ce da povezuje ucionicu kao string sa objektom osobine koji povezujemo na njega
     private HashMap<String,Osobine> tabLimundo;
+
     //neko polje koje ima povezano sa sobom timeline sa nekim terminima
-    private HashMap<String,List<String>> slobodniTerminiZaGledanjeGospodaraPrstenovaBluRay;
+    private HashMap<Par,List<String>> slobodniTerminiZaGledanjeGospodaraPrstenovaBluRay;
     //RAF5 -> 11:15-13:00
     //900,915,100,1015;
     //komponente 11:15-13:00
@@ -212,12 +214,43 @@ public class Raspored {
         this.tabLimundo = tabLimundo;
     }
 
-    public HashMap<String, List<String>> getSlobodniTerminiZaGledanjeGospodaraPrstenovaBluRay() {
+    public HashMap<Par, List<String>> getSlobodniTerminiZaGledanjeGospodaraPrstenovaBluRay() {
         return slobodniTerminiZaGledanjeGospodaraPrstenovaBluRay;
     }
 
-    public void setSlobodniTerminiZaGledanjeGospodaraPrstenovaBluRay(HashMap<String, List<String>> slobodniTerminiZaGledanjeGospodaraPrstenovaBluRay) {
+    public void setSlobodniTerminiZaGledanjeGospodaraPrstenovaBluRay(HashMap<Par, List<String>> slobodniTerminiZaGledanjeGospodaraPrstenovaBluRay) {
         this.slobodniTerminiZaGledanjeGospodaraPrstenovaBluRay = slobodniTerminiZaGledanjeGospodaraPrstenovaBluRay;
+    }
+
+
+
+    private void izbaciZauzete(int pocetak, int kraj){
+        //to do
+    }
+
+    private Map<Par,List<String>> initGospodarPrstenova(List<String> lista,int danIndeks,int ucionicaIndeks){
+        Map<Par,List<String>> mapa = new HashMap<>();
+        for(Dogadjaj dogadjaj : this.dogadjaji){
+            Par par = new Par(dogadjaj.stavkeDogadjaja.get(danIndeks),dogadjaj.stavkeDogadjaja.get(ucionicaIndeks));
+            mapa.put(par,initListaTermina(new ArrayList<>()));
+            //ovime su svi parovi dan-ucionica ubaceni sa svojim timeLinom koji je full sto znaci nijedan nije zauzet
+            //mi njih zauzimamo sa metodom izbaciZauzete
+        }
+        return mapa;
+    }
+
+
+    private List<String> initListaTermina(List<String> lista){
+        for(int i = 9; i < 22; i++){
+            if(i < 10){
+                lista.add("0"+i+":00");
+                lista.add("0"+i+":15");
+                continue;
+            }
+            lista.add(i+":00");
+            lista.add(i+":15");
+        }
+        return lista;
     }
 }
 
