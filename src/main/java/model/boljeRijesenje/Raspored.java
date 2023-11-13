@@ -226,6 +226,23 @@ public class Raspored {
 
     private void izbaciZauzete(int pocetak, int kraj){
         //to do
+        //ovo je header sa kolonom za termine
+        String split[] = (this.dogadjaji.get(0).stavkeDogadjaja.get(5).split("\\-"));
+        String start = split[0];
+        String end = split[1]; //11:15 - 13:00
+        //sada treba da prodjem kroz ostatak hashMape parova i da gledam da li se poklapa
+        //zatim treba da timeline tog para da apdejtujem
+        //prije brisanja iz te liste ja cu da pitam da li se on zapravo sadrzi u listu
+        //u slucaju da se sazdri onda cu da obrisem
+        //u slucaju da ne , ova metoda treba da da neku naznaku da je doslo do greske
+        //ovo je sve dodatna provjere dodavanja termina
+
+
+
+
+
+
+
     }
 
     private Map<Par,List<String>> initGospodarPrstenova(List<String> lista,int danIndeks,int ucionicaIndeks){
