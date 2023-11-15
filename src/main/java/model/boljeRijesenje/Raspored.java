@@ -143,7 +143,6 @@ public class Raspored {
     //kolona predstavlja hashMapu koju brisemo
     public void obrisiKolonu(int index){
         for(Dogadjaj dogadjaj : this.dogadjaji){
-            System.out.println(dogadjaj.stavkeDogadjaja.size());
             dogadjaj.stavkeDogadjaja.remove(index);
         }
         this.refresh(this.dogadjaji);
@@ -169,21 +168,21 @@ public class Raspored {
         List<Dogadjaj> tempFilter;
         Raspored joker = this;
         for(int i = 0; i < mojaListaIndeksa.size();i++){
-            System.out.println("Pre ovoga");
+//            System.out.println("Pre ovoga");
             tempFilter = vratiFiltrirano(dogadjaj.stavkeDogadjaja.get(mojaListaIndeksa.get(i)));
-            System.out.println("Posle ovoga");
+//            System.out.println("Posle ovoga");
             if(tempFilter.isEmpty())
                 return true;
             joker.refresh(tempFilter);
-            System.out.println("Posle refresha " + i);
+//            System.out.println("Posle refresha " + i);
             //this.odstampajRaspored();
         }
         System.out.println("Velicina dogadjaja: " + dogadjaji.size());
         if(joker.dogadjaji.size() == 0){
-            System.out.println("u ifu");
+//            System.out.println("u ifu");
             return true;
         }else{
-            System.out.println("NE MOZE MICO!");
+//            System.out.println("NE MOZE MICO!");
             return false;
         }
     }
@@ -236,13 +235,6 @@ public class Raspored {
         //u slucaju da se sazdri onda cu da obrisem
         //u slucaju da ne , ova metoda treba da da neku naznaku da je doslo do greske
         //ovo je sve dodatna provjere dodavanja termina
-
-
-
-
-
-
-
     }
 
     private Map<Par,List<String>> initGospodarPrstenova(List<String> lista,int danIndeks,int ucionicaIndeks){
