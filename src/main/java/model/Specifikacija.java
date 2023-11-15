@@ -3,8 +3,8 @@ package model;
 public interface Specifikacija {
 
     void stampaj();
-    void kreirajRaspored(String filename,String type);
-    void pretraziRaspred();
+    void exportujRaspored(String filename,String type);
+    void pretraziRaspred(String uslovPretrage);
     void sacuvajRaspored();
     void ucitajRaspored(String filename);
 

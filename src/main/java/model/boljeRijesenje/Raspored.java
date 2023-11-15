@@ -261,5 +261,59 @@ public class Raspored {
         }
         return lista;
     }
+    private void fillContents(List<String> input,int index){
+        input.add("Termin");
+        input.add("Dan");
+        input.add("Učionica");
+        if(index != 0){
+            input.add("Predmet");
+        }
+    }
+
+
+    public void nejmarUPetercu(int index) {
+        if(index == 0){
+            List<Integer> zaBrisanje = new ArrayList<>();
+            for (int i = 0; i <this.getHeader().getStavkeDogadjaja().size(); i++) {
+                String columnHeader = this.getHeader().getStavkeDogadjaja().get(i);
+                if (!columnHeader.equals("Termin") && !columnHeader.equals("Dan") && !columnHeader.equals("Učionica")) {
+                    zaBrisanje.add(i);
+                }
+            }
+            for (int i = zaBrisanje.size() - 1; i >= 0; i--) {
+                int columnIndex = zaBrisanje.get(i);
+                this.getHeader().getStavkeDogadjaja().remove(columnIndex);
+            }
+            for (int i = 0; i < this.getDogadjaji().size(); i++) {
+                List<String> row = this.getDogadjaji().get(i).getStavkeDogadjaja();
+                for (int j = zaBrisanje.size() - 1; j >= 0; j--) {
+                    int columnIndex = zaBrisanje.get(j);
+                    row.remove(columnIndex);
+                }
+            }
+        }else{
+            List<Integer> zaBrisanje = new ArrayList<>();
+            for (int i = 0; i <this.getHeader().getStavkeDogadjaja().size(); i++) {
+                String columnHeader = this.getHeader().getStavkeDogadjaja().get(i);
+                if (!columnHeader.equals("Termin") && !columnHeader.equals("Dan") && !columnHeader.equals("Učionica") && !columnHeader.equals("Predmet")) {
+                    zaBrisanje.add(i);
+                }
+            }
+            for (int i = zaBrisanje.size() - 1; i >= 0; i--) {
+                int columnIndex = zaBrisanje.get(i);
+                this.getHeader().getStavkeDogadjaja().remove(columnIndex);
+            }
+            for (int i = 0; i < this.getDogadjaji().size(); i++) {
+                List<String> row = this.getDogadjaji().get(i).getStavkeDogadjaja();
+                for (int j = zaBrisanje.size() - 1; j >= 0; j--) {
+                    int columnIndex = zaBrisanje.get(j);
+                    row.remove(columnIndex);
+                }
+            }
+        }
+        //ovo jednostavno mora na ovaj nacin, nema sanse da se koristi obrisiKolonu jer to pravi problem
+
+        this.refresh(this.getDogadjaji());
+    }
 }
 
