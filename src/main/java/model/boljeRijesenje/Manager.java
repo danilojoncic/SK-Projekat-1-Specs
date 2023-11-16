@@ -10,6 +10,6 @@ public class Manager {
     }
 
     public static void setSpecifikacija(Specifikacija specifikacija) {
-        specifikacija = specifikacija;
+        Manager.specifikacija = specifikacija;
     }
 }
