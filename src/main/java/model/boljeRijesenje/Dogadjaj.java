@@ -3,6 +3,11 @@ package model.boljeRijesenje;
 import java.util.List;
 
 public class Dogadjaj {
+    /**
+     * Dogadjaj nam predstavlja jedno desavanje u rasporedu i mozemo ga zamisliti kao jedan
+     * red rasporeda. Stavke dogadjaja su svi unosi u kolonama za taj red (npr. ucionica, dan, termin, profesor)
+     *
+     * */
     List<String> stavkeDogadjaja; // kolone jednog reda
 
     public Dogadjaj(List<String> stavkeDogadjaja) {

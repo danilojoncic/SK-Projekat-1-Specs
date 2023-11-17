@@ -1,6 +1,12 @@
 package model.boljeRijesenje;
 
 public class Par {
+    /**
+     * Par predstavlja objekat u kojem cuvamo dan i ucionicu i kasnije ga koristimo za manevrisanje
+     * sa zauzetim i slobodnim terminima
+     *
+     *
+     * */
     private String dan;
     private String ucionica;
 

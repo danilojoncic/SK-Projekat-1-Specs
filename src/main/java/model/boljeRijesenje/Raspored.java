@@ -15,6 +15,12 @@ public class Raspored {
     private HashMap<String,Osobine> tabLimundo;
 
     //neko polje koje ima povezano sa sobom timeline sa nekim terminima
+
+    /**
+     * slobodniTerminiZaGledanjeGospodaraPrstenovaBluRay predstavlja HashMap strukturu u koju cuvamo slobodne termine
+     * za svaku ucionicu po principu [Par (Dan + ucionica), lista termina]
+     *
+     * */
     private HashMap<Par,List<String>> slobodniTerminiZaGledanjeGospodaraPrstenovaBluRay = new HashMap<>();
     //RAF5 -> 11:15-13:00
     //900,915,100,1015;
@@ -84,6 +90,13 @@ public class Raspored {
     public void setDatumOdKadaVazi(Date datumOdKadaVazi) {
         this.datumOdKadaVazi = datumOdKadaVazi;
     }
+    /**
+     * vratiFiltritano() sluzi da vrati dogadjaje koji se poklapaju sa onim sto korisnik trazi
+     * "Filtrira" tj. vraca dogadjaje u vidu liste dogadjaja na osnovu parametra koji korisnik prosledjuje
+     *
+     *@param filter string koji korisnik prosledjuje kao parametar za filtriranje
+     *
+     * */
 
     public List<Dogadjaj> vratiFiltrirano(String filter){
         //to do za sve cak i krajeve rijeci
@@ -112,7 +125,13 @@ public class Raspored {
         return odgovarajuci;
     }
 
-
+    /**
+     * refresh() metoda uzima novu listu dogadjaja i na osnovu nje "osvezava" raspored tako sto
+     * obnavlja listu dogadjaja i hes mape potrebne za dalju manipulaciju njima
+     *
+     *@param noviDogadjaji je najaktuelnija lista dogadjaja koja se prosledjuje rasporedu
+     *
+     * */
 
     public Raspored refresh(List<Dogadjaj> noviDogadjaji) {
 //        if(noviDogadjaji.isEmpty()){

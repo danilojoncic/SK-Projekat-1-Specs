@@ -43,6 +43,5 @@ public interface Specifikacija {
      */
     Raspored ucitajRaspored(String filename);
 
-    //da bi refreshovao potrebne su mi liste dogadjaja
-    //a ja nazad vracam raspored
+
 }

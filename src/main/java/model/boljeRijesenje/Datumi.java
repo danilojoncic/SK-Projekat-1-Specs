@@ -6,6 +6,12 @@ import java.util.Map;
 
 public class Datumi {
 
+    /**
+     * Klasa Datumi se koristi za manevrisanje datumima u odnosu na Dane u nedelji i pocetni i krajnji datum za
+     * koji vazi raspored
+     *
+     *
+     * */
     private static Datumi instance;
     private String[] dani = {"PON","UTO","SRI","CET","PET"};
     private Map<LocalDate, DayOfWeek> mapaDatumaIDana;
