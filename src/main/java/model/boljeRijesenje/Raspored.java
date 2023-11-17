@@ -15,7 +15,7 @@ public class Raspored {
     private HashMap<String,Osobine> tabLimundo;
 
     //neko polje koje ima povezano sa sobom timeline sa nekim terminima
-    private HashMap<Par,List<String>> slobodniTerminiZaGledanjeGospodaraPrstenovaBluRay;
+    private HashMap<Par,List<String>> slobodniTerminiZaGledanjeGospodaraPrstenovaBluRay = new HashMap<>();
     //RAF5 -> 11:15-13:00
     //900,915,100,1015;
     //komponente 11:15-13:00
@@ -237,11 +237,16 @@ public class Raspored {
         //ovo je sve dodatna provjere dodavanja termina
     }
 
-    private Map<Par,List<String>> initGospodarPrstenova(List<String> lista,int danIndeks,int ucionicaIndeks){
-        Map<Par,List<String>> mapa = new HashMap<>();
+    public void metniSveURaspored(int indexDan, int indeksUcionice){
+        this.setSlobodniTerminiZaGledanjeGospodaraPrstenovaBluRay(initGospodarPrstenova(indexDan,indeksUcionice));
+    }
+
+    private HashMap<Par,List<String>> initGospodarPrstenova(int danIndeks,int ucionicaIndeks){
+        HashMap<Par,List<String>> mapa = new HashMap<>();
         for(Dogadjaj dogadjaj : this.dogadjaji){
+            ArrayList<String> stringovi = new ArrayList<>();
             Par par = new Par(dogadjaj.stavkeDogadjaja.get(danIndeks),dogadjaj.stavkeDogadjaja.get(ucionicaIndeks));
-            mapa.put(par,initListaTermina(new ArrayList<>()));
+            mapa.put(par,initListaTermina(stringovi));
             //ovime su svi parovi dan-ucionica ubaceni sa svojim timeLinom koji je full sto znaci nijedan nije zauzet
             //mi njih zauzimamo sa metodom izbaciZauzete
         }
